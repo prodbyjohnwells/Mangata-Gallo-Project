@@ -1,0 +1,235 @@
+/* Mangata & Gallo | Lab project by John Wells */
+/*---------------------------------------------------------------------------*/
+
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: whitesmoke;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+header > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: auto;
+}
+
+/* Navigation Styles */
+nav ul {
+    text-align: center;
+    background-color: moccasin;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    transition: background-color 0.3s ease;
+}
+
+nav li {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 1em;
+    transition: color 0.3s ease;
+    font-family: 'Baloo 2', cursive; /* Applied bubbly font */
+    font-size: 1.4em; /* Increased font size */
+    font-weight: 700; /* Increased font weight for increased readability */
+}
+
+nav li:hover {
+    text-decoration: underline; /* Underline on hover */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    color: #555;
+    transform: scale(1.1); /* Scale up the item to 110% of its size */
+}
+
+main > section:first-of-type {
+    background-color: white;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 50px;
+}
+
+main > section:first-of-type > article:first-of-type .sent1 {
+    font-size: 1em;
+}
+
+main > section:first-of-type > article:first-of-type .sent2 {
+    font-size: .25em;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    background-color: moccasin;
+    gap: 20px;
+    border-radius: 20px;
+    background: blend mode 50%;
+}
+
+/*---------------------------------------------------------------------------*/
+
+/* Background Image Promo */
+.background-container {
+    position: relative; /* Establish a positioning context for child elements */
+    width: 100%; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    overflow: hidden; /* Ensure no overflow from child elements */
+    border-radius: 10px;
+}
+
+.background-image {
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container without distortion */
+    border-radius: 10px;
+    z-index: 1; /* Place the image behind the text */
+}
+
+.text-overlay {
+    position: absolute; /* Place text on top of the image */
+    top: 0; /* Center text vertically */
+    left: 0; /* Center text horizontally */
+    width: 100%;
+    height: 100%;
+    color: white; /* Text color for contrast */
+    z-index: 2; /* Ensure the text is above the image */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some padding */
+    background: rgba(0, 0, 0, 0.35);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/*---------------------------------------------------------------------------*/
+
+/* Article Styling */
+article {
+    position: relative;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+article:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+article img {
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container without distortion */
+    border-radius: 10px; /* Match border-radius with the article */
+    z-index: 1; /* Place the image behind the text */
+}
+
+.text-overlay1,
+.text-overlay2,
+.text-overlay3 {
+    position: absolute; /* Position text on top of the image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white; /* Text color for contrast */
+    z-index: 2; /* Ensure the text is above the image */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some padding around the text */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 10px; /* Match border-radius with the image */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    transition: background 0.3s ease;
+    overflow: auto; /* Insures the text doesn't overflow */
+}
+
+.text-overlay1 h1,
+.text-overlay2 h1,
+.text-overlay3 h1,
+.text-overlay1 p,
+.text-overlay2 p,
+.text-overlay3 p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    color: white; /* Ensure text color is white */
+}
+
+article:hover .text-overlay1 h1,
+article:hover .text-overlay2 h1,
+article:hover .text-overlay3 h1,
+article:hover .text-overlay1 p,
+article:hover .text-overlay2 p,
+article:hover .text-overlay3 p {
+    opacity: 1;
+    transform: translateY(0);
+    color: white; /* Ensure text color is white */
+}
+
+@media (max-width: 768px) {
+    .text-overlay1, .text-overlay2, .text-overlay3 {
+        padding: 10px; /* Reduce padding on smaller screens */
+        font-size: 0.9em; /* Adjust font size */
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Adjust heading sizes */
+    }
+
+    nav li {
+        font-size: 1em; /* Adjust nav item sizes */
+    }
+}
+/*---------------------------------------------------------------------------*/
+
+footer {
+    display: flex;
+    border-top-style: double;
+    background-color: whitesmoke;
+}
+
+footer div {
+    flex: 1;
+    margin: 25px
+}
+
+footer div img {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    height: auto;
+}
